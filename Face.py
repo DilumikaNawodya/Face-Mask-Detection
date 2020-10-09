@@ -11,16 +11,16 @@ import numpy as np
 import os
 
 
-model = load_model('model-010.model')
+model = load_model('your best model goes here')
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 labels = {0:'MASK',1:'WITHOUT MASK'}
 colors = {0:(0,255,0),1:(255,0,0)}
 
-DATADIR = 'E:\Education\Language\Projects\Face Mask Detection\Face Mask Dataset\Predictions'
+DATADIR = 'predictions directory path goes here'
 CATEGORY = ["To be","Done"]
 
-opt = int(input("Enter 1 or 0 : "))
+opt = int(input("Enter 1 or 0 : ")) #Enter 1 for image and 0 for video feed
 i = 1
 if opt==1:
     open_path = os.path.join(DATADIR,CATEGORY[0])
