@@ -4,10 +4,9 @@ import numpy as np
 from keras.utils import np_utils
 
 
-data_path_train='E:\Education\Language\Projects\Face Mask Detection\Face Mask Dataset\Train'
-data_path_test='E:\Education\Language\Projects\Face Mask Detection\Face Mask Dataset\Test'
-data_path_validation='E:\Education\Language\Projects\Face Mask Detection\Face Mask Dataset\Validation'
-
+data_path_train='Train path goes here'
+data_path_test='Test path goes here'
+data_path_validation='Validation path goes here'
 
 cate = ["WithMask","WithoutMask"]
 label_value = {"WithMask":0,"WithoutMask":1}
@@ -32,17 +31,15 @@ for category in cate:
 
         try:
             gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)           
-            #Coverting the image into gray scale
+            
             resized=cv2.resize(gray,(img_size,img_size))
-            #resizing the gray scale into 50x50, since we need a fixed common size for all the images in the dataset
+
             train_X.append(resized)
             train_Y.append(label_value[category])
-            #appending the image and the label(categorized) into the list (dataset)
-
+            
         except Exception as e:
             print('Exception:',e)
-            #if any exception rasied, the exception will be printed here. And pass to the next image
-
+            
 
 for category in cate:
     folder_path=os.path.join(data_path_test,category)
@@ -54,16 +51,16 @@ for category in cate:
 
         try:
             gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)           
-            #Coverting the image into gray scale
+           
             resized=cv2.resize(gray,(img_size,img_size))
-            #resizing the gray scale into 50x50, since we need a fixed common size for all the images in the dataset
+            
             test_X.append(resized)
             test_Y.append(label_value[category])
-            #appending the image and the label(categorized) into the list (dataset)
+            
 
         except Exception as e:
             print('Exception:',e)
-            #if any exception rasied, the exception will be printed here. And pass to the next image
+          
 
 
 for category in cate:
@@ -76,16 +73,15 @@ for category in cate:
 
         try:
             gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)           
-            #Coverting the image into gray scale
+            
             resized=cv2.resize(gray,(img_size,img_size))
-            #resizing the gray scale into 50x50, since we need a fixed common size for all the images in the dataset
+            
             valid_X.append(resized)
             valid_Y.append(label_value[category])
-            #appending the image and the label(categorized) into the list (dataset)
-
+           
         except Exception as e:
             print('Exception:',e)
-            #if any exception rasied, the exception will be printed here. And pass to the next image
+           
 
 
 
